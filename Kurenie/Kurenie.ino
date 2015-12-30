@@ -50,6 +50,12 @@ LiquidCrystal_I2C lcd(I2C_ADDR_LCD, En_pin, Rw_pin, Rs_pin, D4_pin, D5_pin, D6_p
 #define LCDINFO_TASK_TIME 2000
 #define NUM_OF_VIEWS = 2
 
+void loopTask(Task* me);
+void dallasTask(Task* me);
+void dht22Task(Task* me);
+boolean lcd_info_1(Task *me);
+boolean lcd_info_2(Task *me);
+
 Task t_loop(LOOP_TASK_TIME, loopTask);
 Task t_dallas(DALLAS_TASK_TIME, dallasTask);
 Task t_DHT22(DHT22_TASK_TIME, dht22Task);
