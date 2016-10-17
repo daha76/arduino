@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 #include <PciManager.h>
 #include <PciListenerImp2.h>
 #include <PciListenerImp.h>
@@ -5,6 +7,7 @@
 #include <IPciChangeHandler.h>
 #include <DS3232RTC.h>
 #include <Time.h>
+#include <TimeLib.h>
 #include <Wire.h>
 #include <LCD.h>
 #include <LiquidCrystal_I2C.h>
@@ -131,7 +134,6 @@ void loopTask(Task* me) {
 		time_t t = processSyncMessage();
 		if (t != 0) {
 			RTC.set(t);   // set the RTC and the system time to the received value
-			setTime(t);
 			Serial.print(F("RTC Synchronized to PC time="));
 			Serial.println(t);
 		}
@@ -274,6 +276,7 @@ unsigned long processSyncMessage() {
     if ( pctime < DEFAULT_TIME) { // check the value is a valid time (greater than Jan 1 2013)
       pctime = 0L; // return 0 to indicate that the time is not valid
     }
+    setTime(pctime);
   }
   return pctime;
 }
