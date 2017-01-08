@@ -1,5 +1,3 @@
-#include <Arduino.h>
-
 #include <PciManager.h>
 #include <PciListenerImp2.h>
 #include <PciListenerImp.h>
