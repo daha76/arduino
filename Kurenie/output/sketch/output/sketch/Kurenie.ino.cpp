@@ -1,3 +1,6 @@
+#include <Arduino.h>
+#line 1 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
+#line 1 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
 #include <PciManager.h>
 #include <PciListenerImp2.h>
 #include <PciListenerImp.h>
@@ -278,4 +281,5 @@ unsigned long processSyncMessage() {
   }
   return pctime;
 }
+
 

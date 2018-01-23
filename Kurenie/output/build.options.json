@@ -1,0 +1,10 @@
+{
+  "builtInLibrariesFolders": "C:\\Program Files (x86)\\Arduino\\libraries",
+  "customBuildProperties": "build.path=d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\output,build.warn_data_percentage=75,runtime.tools.arduinoOTA.path=C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\arduinoOTA\\1.1.1,runtime.tools.avr-gcc.path=C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\4.9.2-atmel3.5.4-arduino2,runtime.tools.avrdude.path=C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avrdude\\6.3.0-arduino9",
+  "fqbn": "arduino:avr:mega:cpu=atmega2560",
+  "hardwareFolders": "C:\\Program Files (x86)\\Arduino\\hardware,C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages",
+  "otherLibrariesFolders": "D:\\Daniel\\Documents\\Arduino\\libraries",
+  "runtime.ide.version": "10805",
+  "sketchLocation": "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino",
+  "toolsFolders": "C:\\Program Files (x86)\\Arduino\\tools-builder,C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr,C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages"
+}

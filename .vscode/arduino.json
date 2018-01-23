@@ -1,0 +1,7 @@
+{
+    "sketch": "Kurenie\\Kurenie.ino",
+    "board": "arduino:avr:mega",
+    "configuration": "cpu=atmega2560",
+    "port": "COM9",
+    "output": "Kurenie\\output"
+}

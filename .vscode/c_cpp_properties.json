@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Arduino",
+            "includePath": [
+                "${workspaceRoot}"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.6.20\\cores\\arduino",
+                    "C:\\Program Files (x86)\\Arduino\\hardware",
+                    "C:\\Program Files (x86)\\Arduino\\libraries",
+                    "D:\\Daniel\\Documents\\Arduino\\libraries",
+                    "${workspaceRoot}"
+                ],
+                "databaseFilename": ""        
+            },
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 3
+}

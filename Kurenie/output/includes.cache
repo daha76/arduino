@@ -1,0 +1,237 @@
+[
+  {
+    "Sourcefile": "",
+    "Include": "",
+    "Includepath": "C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.6.20\\cores\\arduino"
+  },
+  {
+    "Sourcefile": "",
+    "Include": "",
+    "Includepath": "C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.6.20\\variants\\mega"
+  },
+  {
+    "Sourcefile": "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\output\\sketch\\Kurenie.ino.cpp",
+    "Include": "PciManager.h",
+    "Includepath": "D:\\Daniel\\Documents\\Arduino\\libraries\\PciManager\\src"
+  },
+  {
+    "Sourcefile": "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\output\\sketch\\Kurenie.ino.cpp",
+    "Include": "DS3232RTC.h",
+    "Includepath": "D:\\Daniel\\Documents\\Arduino\\libraries\\DS3232RTC\\src"
+  },
+  {
+    "Sourcefile": "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\output\\sketch\\Kurenie.ino.cpp",
+    "Include": "TimeLib.h",
+    "Includepath": "D:\\Daniel\\Documents\\Arduino\\libraries\\Time-1.5"
+  },
+  {
+    "Sourcefile": "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\output\\sketch\\Kurenie.ino.cpp",
+    "Include": "Wire.h",
+    "Includepath": "C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.6.20\\libraries\\Wire\\src"
+  },
+  {
+    "Sourcefile": "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\output\\sketch\\Kurenie.ino.cpp",
+    "Include": "LCD.h",
+    "Includepath": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal"
+  },
+  {
+    "Sourcefile": "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\output\\sketch\\Kurenie.ino.cpp",
+    "Include": "DallasTemperature.h",
+    "Includepath": "D:\\Daniel\\Documents\\Arduino\\libraries\\DallasTemperature"
+  },
+  {
+    "Sourcefile": "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\output\\sketch\\Kurenie.ino.cpp",
+    "Include": "DHT.h",
+    "Includepath": "D:\\Daniel\\Documents\\Arduino\\libraries\\DHT-sensor-library-master"
+  },
+  {
+    "Sourcefile": "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\output\\sketch\\Kurenie.ino.cpp",
+    "Include": "SoftTimer.h",
+    "Includepath": "D:\\Daniel\\Documents\\Arduino\\libraries\\SoftTimer\\src"
+  },
+  {
+    "Sourcefile": "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\output\\sketch\\Kurenie.ino.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\PciManager\\src\\PciListenerImp.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\PciManager\\src\\PciListenerImp2.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\PciManager\\src\\PciManager.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\DS3232RTC\\src\\DS3232RTC.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\Time-1.5\\DateStrings.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\Time-1.5\\Time.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.6.20\\libraries\\Wire\\src\\Wire.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.6.20\\libraries\\Wire\\src\\utility\\twi.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal\\FastIO.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal\\I2CIO.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal\\LCD.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal\\LiquidCrystal.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal\\LiquidCrystal_I2C.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal\\LiquidCrystal_I2C_ByVac.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal\\LiquidCrystal_SI2C.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal\\LiquidCrystal_SR.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal\\LiquidCrystal_SR1W.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal\\LiquidCrystal_SR2W.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal\\LiquidCrystal_SR3W.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\NewliquidCrystal\\SI2CIO.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\DallasTemperature\\DallasTemperature.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\DallasTemperature\\OneWire.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\DHT-sensor-library-master\\DHT.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\DHT-sensor-library-master\\DHT_U.cpp",
+    "Include": "Adafruit_Sensor.h",
+    "Includepath": "D:\\Daniel\\Documents\\Arduino\\libraries\\Adafruit_Sensor-master"
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\DHT-sensor-library-master\\DHT_U.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\SoftTimer\\src\\BlinkTask.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\SoftTimer\\src\\Debouncer.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\SoftTimer\\src\\DelayRun.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\SoftTimer\\src\\Dimmer.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\SoftTimer\\src\\FrequencyTask.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\SoftTimer\\src\\Heartbeat.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\SoftTimer\\src\\Rotary.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\SoftTimer\\src\\SoftPwmTask.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\SoftTimer\\src\\SoftTimer.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\SoftTimer\\src\\Task.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "D:\\Daniel\\Documents\\Arduino\\libraries\\SoftTimer\\src\\TonePlayer.cpp",
+    "Include": "",
+    "Includepath": ""
+  }
+]

@@ -1,3 +1,6 @@
+#include <Arduino.h>
+#line 1 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
+#line 1 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
 #include <PciManager.h>
 #include <PciListenerImp2.h>
 #include <PciListenerImp.h>
@@ -74,6 +77,23 @@ float dht22Hum = 0;
 unsigned long startMillis;
 unsigned long previousMillis = 0;
 
+#line 77 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
+void setup();
+#line 181 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
+void printTemp(int row, float temp);
+#line 187 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
+void printHumidity(int row, float hum);
+#line 193 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
+void TimeDateDisplay(time_t now);
+#line 206 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
+void setupRTC(void);
+#line 248 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
+void checkAlarmStatus();
+#line 254 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
+void alarmStatus();
+#line 267 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
+unsigned long processSyncMessage();
+#line 77 "d:\\Daniel\\Documents\\GitHub\\arduino\\Kurenie\\Kurenie.ino"
 void setup() {
 	startMillis = millis();
   pinMode(BEAT_PIN, OUTPUT );
@@ -278,4 +298,5 @@ unsigned long processSyncMessage() {
   }
   return pctime;
 }
+
 
