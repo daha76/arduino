@@ -262,7 +262,7 @@ void alarmStatus() {
 }
 
 /*  code to process time sync messages from the serial port   */
-#define TIME_HEADER  "T"   // Header tag for serial time sync message
+#define TIME_HEADER  'T'   // Header tag for serial time sync message
 
 unsigned long processSyncMessage() {
   unsigned long pctime = 0L;
