@@ -14,7 +14,24 @@
                     "D:\\Daniel\\Documents\\Arduino\\libraries",
                     "${workspaceRoot}"
                 ],
-                "databaseFilename": ""        
+                "databaseFilename": ""
+            },
+            "intelliSenseMode": "msvc-x64"
+        },
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceRoot}"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "C:\\Program Files (x86)\\Arduino\\hardware",
+                    "C:\\Program Files (x86)\\Arduino\\libraries",
+                    "D:\\Daniel\\Documents\\Arduino\\libraries",
+                    "${workspaceRoot}"
+                ],
+                "databaseFilename": ""
             },
             "intelliSenseMode": "msvc-x64"
         }
