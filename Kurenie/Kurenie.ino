@@ -1,22 +1,24 @@
 #define SERIAL_DEBUG_ENABLED DEBUG_LOG_LVL
 #include "LogUtils.h"
-#include <PciManager.h>
-#include <PciListenerImp2.h>
-#include <PciListenerImp.h>
-#include <PciListener.h>
-#include <IPciChangeHandler.h>
-#include <DS3232RTC.h>
-#include <Time.h>
-#include <TimeLib.h>
+#include "BlynkSettings.h"
+#include "RTCmodule.h"
+// #include <PciManager.h>
+// #include <PciListenerImp2.h>
+// #include <PciListenerImp.h>
+// #include <PciListener.h>
+// #include <IPciChangeHandler.h>
+// #include <DS3232RTC.h>
+//#include <Time.h>
+// #include <TimeLib.h>
 #include <Wire.h>
-#include <LCD.h>
+//#include <LCD.h>
 #include <LiquidCrystal_I2C.h>
 // #include <OneWire.h>
 #include <DallasTemperature.h>
 #include <DHT.h>
 #include <SoftTimer.h>
 #include <Heartbeat.h>
-//#include <TonePlayer.h>
+// #include <TonePlayer.h>
 #include <DelayRun.h>
 
 #define BEAT_PIN 13
@@ -31,20 +33,17 @@ OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire); // Initialize Dallas temperature sensor
 
 #define I2C_ADDR_LCD 0x27
-#define BACKLIGHT_PIN 3
-#define En_pin 2
-#define Rw_pin 1
-#define Rs_pin 0
-#define D4_pin 4
-#define D5_pin 5
-#define D6_pin 6
-#define D7_pin 7
+// #define BACKLIGHT_PIN 3
+// #define En_pin 2
+// #define Rw_pin 1
+// #define Rs_pin 0
+// #define D4_pin 4
+// #define D5_pin 5
+// #define D6_pin 6
+// #define D7_pin 7
 
-LiquidCrystal_I2C lcd(I2C_ADDR_LCD, En_pin, Rw_pin, Rs_pin, D4_pin, D5_pin, D6_pin, D7_pin, BACKLIGHT_PIN, POSITIVE);
+LiquidCrystal_I2C lcd(I2C_ADDR_LCD, 20, 4); //En_pin, Rw_pin, Rs_pin, D4_pin, D5_pin, D6_pin, D7_pin, BACKLIGHT_PIN, POSITIVE);
 
-#define I2C_ADDR_RTC 0x68
-#define I2C_ADDR_EEPROM 0x57
-#define RTC_ALARM_PIN 10
 #define BEEPER_PIN 8
 
 #define LOOP_TASK_TIME 0
@@ -76,7 +75,7 @@ float dht22Hum = 0;
 unsigned long previousMillis = 0;
 
 #ifdef SERIAL_DEBUG_ENABLED
-String logMessage;
+  String logMessage;
 #endif
 
 char *string2char(String msg)
@@ -88,22 +87,33 @@ char *string2char(String msg)
   }
 }
 
+BLYNK_CONNECTED() 
+{
+  // Synchronize time on connection
+  widgetRTC.begin();
+}
+
 void setup()
 {
   #ifdef SERIAL_DEBUG_ENABLED
-  logMessage.reserve(50);
+    logMessage.reserve(50);
   #endif
+
   Serial.begin(9600);
   while (!Serial || millis() < 1000) {
     ; // wait for serial port to connect. Needed for native USB
   }
 
-  // delay(1000);
-
+  // Set ESP8266 baud rate
+  EspSerial.begin(ESP8266_BAUD);
+  delay(10);
+  Blynk.begin(auth, wifi, ssid, pass);
+  setSyncInterval(10 * 60);
+  
   pinMode(BEAT_PIN, OUTPUT);
-  pinMode(RTC_ALARM_PIN, INPUT_PULLUP);
 
   sensors.begin();
+  sensors.setResolution(TEMPERATURE_PRECISION);
   dht.begin();
 
   lcd.begin(20, 4); // initialize the lcd
@@ -112,14 +122,13 @@ void setup()
   lcd.home(); // go home
   lcd.setCursor(5, 1);
   lcd.print(F("Hello :-)"));
-  delay(1000);
 
   numOfSensors = sensors.getDeviceCount();
   
   #if SERIAL_DEBUG_ENABLED == DEBUG_LOG_LVL
-  logMessage = F("NumOfSensors=");
-  logMessage += numOfSensors;
-  DebugPrintln(logMessage);
+    logMessage = F("NumOfSensors=");
+    logMessage += numOfSensors;
+    DebugPrintln(logMessage);
   #endif
 
   if (dallasTemps != 0)
@@ -128,6 +137,7 @@ void setup()
   }
   dallasTemps = new float[numOfSensors];
 
+  delay(1000);
   lcd.clear();
   lcd.home();
   lcd.print(F("Pocet senzorov:"));
@@ -152,44 +162,35 @@ void loopTask(Task *me)
   if (millis() - previousMillis > 1000)
   {
     previousMillis = millis();
-    time_t now = RTC.get();
-    TimeDateDisplay(now);
+    // time_t now = RTC.get();
+    TimeDateDisplay(now());
   }
 
   if (Serial.available())
   {
-    time_t t = processSyncMessage();
-    if (t != 0)
-    {
-      RTC.set(t); // set the RTC and the system time to the received value
-      
-      #if SERIAL_DEBUG_ENABLED == DEBUG_LOG_LVL
-      logMessage = F("RTC Synchronized to PC time=");
-      logMessage += t;
-      DebugPrintln(logMessage);
-      #endif
-    }
+    processSyncMessage();
   }
 
   checkAlarmStatus();
+  Blynk.run();
+  blynkTimer.run();
 }
 
 void dallasTask(Task *me)
 {
   sensors.requestTemperatures();
-  // String msg;
-  // msg.reserve(20);
   for (int i = 0; i < numOfSensors; i++)
   {
     dallasTemps[i] = sensors.getTempCByIndex(i);
     
     #if SERIAL_DEBUG_ENABLED == DEBUG_LOG_LVL
-    logMessage = F("DS18B20(");
-    logMessage += i;
-    logMessage += F(")=");
-    logMessage += dallasTemps[i];
-    DebugPrintln(logMessage);
+      logMessage = F("DS18B20(");
+      logMessage += i;
+      logMessage += F(")=");
+      logMessage += dallasTemps[i];
+      DebugPrintln(logMessage);
     #endif
+    Blynk.virtualWrite(12 + i, dallasTemps[i]);
   }
 }
 
@@ -205,13 +206,16 @@ void dht22Task(Task *me)
   }
   
   #if SERIAL_DEBUG_ENABLED == DEBUG_LOG_LVL
-  logMessage = F("DHT22:T=");
-  logMessage += dht22Temp;
-  logMessage += F(" H=");
-  logMessage += dht22Hum;
-  logMessage += '%';
-  DebugPrintln(logMessage);
+    logMessage = F("DHT22:T=");
+    logMessage += dht22Temp;
+    logMessage += F(" H=");
+    logMessage += dht22Hum;
+    logMessage += '%';
+    DebugPrintln(logMessage);
   #endif
+  
+  Blynk.virtualWrite(10, dht22Temp);
+  Blynk.virtualWrite(11, dht22Hum);
 }
 
 boolean lcd_info_1(Task *me)
@@ -258,83 +262,7 @@ void TimeDateDisplay(time_t now)
   lcd.print(dateTimeBuf);
 }
 
-void setupRTC(void)
-{
-  DebugPrintln(F("Setup DS3231RTC"));
-  setSyncProvider(RTC.get); // the function to get the unix time from the RTC
-  if (timeStatus() != timeSet) {
-    WarningPrintln(F("Unable to sync with the RTC"));
-  }
-  else {
-    DebugPrintln(F("RTC has set the system time"));
-  }
-
-  //enable alarm interrupts on match; also sets status flags A1F,A2F
-
-  RTC.alarmInterrupt(1, 1); //enable alarm 1 interrupt A1IE
-  RTC.alarmInterrupt(2, 1); //enable alarm 2 interrupt A2IE
-
-  //enable or disable the square wave output,
-  // no square wave (NONE) sets ITCN bit=1
-  //enables alarm interrupt on square wave pin set from A1F, A2F
-  //digitalRead with INPUT_PULLUP; LOW is alarm interrupt
-
-  RTC.squareWave(SQWAVE_NONE);
-
-  /*Alarm_Types defined in RTC3232.h.............................................
-
-    ALM1_EVERY_SECOND
-    ALM1_MATCH_SECONDS
-    ALM1_MATCH_MINUTES     //match minutes *and* seconds
-    ALM1_MATCH_HOURS       //match hours *and* minutes, seconds
-    ALM1_MATCH_DATE        //match date *and* hours, minutes, seconds
-    ALM1_MATCH_DAY         //match day *and* hours, minutes, seconds
-    ALM2_EVERY_MINUTE
-    ALM2_MATCH_MINUTES     //match minutes
-    ALM2_MATCH_HOURS       //match hours *and* minutes
-    ALM2_MATCH_DATE       //match date *and* hours, minutes
-    ALM2_MATCH_DAY        //match day *and* hours, minutes
-  */
-  //setAlarm Format (Alarm_Type, seconds, minutes, hours, date(or day))
-  RTC.setAlarm(ALM2_EVERY_MINUTE, 0, 0, 0, 0);
-  RTC.setAlarm(ALM1_MATCH_SECONDS, 30, 0, 0, 0);
-}
-
 void checkAlarmStatus()
 {
-  if (digitalRead(RTC_ALARM_PIN) == 0)
-  {
-    alarmStatus();
-  }
-}
-
-void alarmStatus()
-{
-  #if SERIAL_DEBUG_ENABLED == DEBUG_LOG_LVL
-    logMessage = String(F("rtcAlarmPin=")) + digitalRead(RTC_ALARM_PIN); //resets with status reset
-    logMessage += String(F(" Alarm1 status=")) + RTC.alarm(1);                  //reads and resets status
-    logMessage += String(F(" Alarm2 status=")) + RTC.alarm(2);                  //reads and resets status
-    DebugPrintln(logMessage);
-  #endif
-}
-
-/*  code to process time sync messages from the serial port   */
-#define TIME_HEADER 'T' // Header tag for serial time sync message
-
-unsigned long processSyncMessage()
-{
-  unsigned long pctime = 0L;
-  const unsigned long DEFAULT_TIME = 1357041600; // Jan 1 2013
-
-  if (Serial.find(TIME_HEADER))
-  {
-    pctime = Serial.parseInt();
-    //return pctime;
-    if (pctime < DEFAULT_TIME)
-    {              // check the value is a valid time (greater than Jan 1 2013)
-      pctime = 0L; // return 0 to indicate that the time is not valid
-    }
-    setTime(pctime);
-  }
-  return pctime;
+    getAlarmStatus();
 }
