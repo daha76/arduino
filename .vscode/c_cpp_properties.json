@@ -23,15 +23,21 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceRoot}"
+                "${workspaceRoot}",
+                "C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.4.1\\cores\\esp8266",
+                "C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.6.21\\cores\\arduino",
+                "D:\\Daniel\\Documents\\Arduino\\libraries\\LiquidCrystal\\src"
             ],
             "browse": {
-                "limitSymbolsToIncludedHeaders": true,
+                "limitSymbolsToIncludedHeaders": false,
                 "path": [
                     "C:\\Program Files (x86)\\Arduino\\hardware",
                     "C:\\Program Files (x86)\\Arduino\\libraries",
                     "D:\\Daniel\\Documents\\Arduino\\libraries",
-                    "${workspaceRoot}"
+                    "${workspaceRoot}",
+                    "C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.4.1\\cores\\esp8266",
+                    "C:\\Users\\danie\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.6.21\\cores\\arduino",
+                    "D:\\Daniel\\Documents\\Arduino\\libraries\\LiquidCrystal\\src"
                 ],
                 "databaseFilename": ""
             },

@@ -116,7 +116,7 @@ void setup()
   sensors.setResolution(TEMPERATURE_PRECISION);
   dht.begin();
 
-  lcd.begin(20, 4); // initialize the lcd
+  lcd.begin(); // initialize the lcd
   lcd.setBacklight(HIGH);
 
   lcd.home(); // go home
