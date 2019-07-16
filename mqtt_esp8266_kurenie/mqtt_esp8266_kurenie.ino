@@ -182,6 +182,9 @@ void dallasTask() {
     debugLog(F(")="));
     debugLogln(dallasTemps[i]);
     Blynk.virtualWrite(5 + i, dallasTemps[i]);
+    if(mqttClient.connected()) {
+      mqttReportTemp(i, dallasTemps[i]);
+    }
   }
 }
 
@@ -209,6 +212,9 @@ void dht22Task() {
   Blynk.virtualWrite(1, dht22Hum);
   Blynk.virtualWrite(2, dp);
   hasMeassuredData = true;
+    if(mqttClient.connected()) {
+      mqttReportTemp(2, dht22Temp);
+    }
 }
 
 void mqttReconnectTask() {
@@ -236,6 +242,13 @@ void mqttReconnectTask() {
 void mqttReportHeapTask() {
   char msg[14];
   sprintf(msg, "freeHeap:%05d", ESP.getFreeHeap());
+  mqttClient.publish(outTopic, msg);
+  msgLogln(msg);  
+}
+
+void mqttReportTemp(int idx, float val) {
+  char msg[14];
+  sprintf(msg, "temp:%d:%f", idx, val);
   mqttClient.publish(outTopic, msg);
   msgLogln(msg);  
 }

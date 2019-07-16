@@ -4,14 +4,14 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-#define SDA_PIN D2
-#define SCL_PIN D1
+#define SDA_PIN D5 //D2
+#define SCL_PIN D6 //D1
 #define I2C_ADDR_LCD 0x27
 LiquidCrystal_I2C lcd(I2C_ADDR_LCD, 20, 4);
 
-#define RELAYPIN D6
+#define RELAYPIN D1 //D6
 
-#define DS18B20PIN D5
+#define DS18B20PIN D2 //D5
 #define TEMPERATURE_PRECISION 9
 OneWire oneWire(DS18B20PIN);
 DallasTemperature sensors(&oneWire);
