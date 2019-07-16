@@ -16,12 +16,11 @@
 
 ESP8266 wifi(&EspSerial);
 
-// char auth[] = "85fe301f0dcb4539adc1404c25bf2df2"; // Mega
-char auth[] = "6defb2a6aa4e48c7ae89a51dc696c682"; // WemosD1
+char auth[] = "XXXXXXXXXXXXXXXXXXXX"; // WemosD1
 // Your WiFi credentials.
 // Set password to "" for open networks.
-char ssid[] = "SDWifi24G";
-char pass[] = "29HaD8828";
+char ssid[] = "XXXXXXXX";
+char pass[] = "XXXXXXXX";
 
 BlynkTimer blynkTimer;
 WidgetRTC widgetRTC;
